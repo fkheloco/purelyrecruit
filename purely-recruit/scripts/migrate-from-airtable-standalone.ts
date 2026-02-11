@@ -308,7 +308,7 @@ function mapApplicationStatus(status: string): string {
 // Database operations
 async function createDefaultTenant(sql: any): Promise<string> {
   try {
-    const existing = await sql(
+    const existing = await (sql as any).query(
       "SELECT id FROM tenants WHERE slug = 'purely-works' LIMIT 1"
     );
 
@@ -318,7 +318,7 @@ async function createDefaultTenant(sql: any): Promise<string> {
     }
 
     const tenantId = generateId();
-    await sql(
+    await (sql as any).query(
       `INSERT INTO tenants (
         id, clerk_org_id, name, slug, description, is_active, created_at, updated_at
       ) VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW())`,
@@ -385,7 +385,7 @@ async function migrateSkills(sql: any) {
 
         const skillId = generateId();
 
-        await sql(
+        await (sql as any).query(
           `INSERT INTO skills (id, name, category, subcategory, is_active, created_at)
            VALUES ($1, $2, $3, $4, $5, NOW())`,
           [skillId, skillName, category, subcategory, true]
@@ -442,7 +442,7 @@ async function migrateCandidates(sql: any) {
 
       const candidateId = generateId();
 
-      await sql(
+      await (sql as any).query(
         `INSERT INTO candidates (
           id, email, first_name, last_name, phone, linkedin_url, current_title,
           location_city, location_state, location_country, years_experience,
@@ -477,7 +477,7 @@ async function migrateCandidates(sql: any) {
       // Create resume
       if (fullTextResume) {
         const resumeId = generateId();
-        await sql(
+        await (sql as any).query(
           `INSERT INTO resumes (
             id, candidate_id, file_url, file_name, file_type, raw_text, is_primary, uploaded_at
           ) VALUES ($1, $2, $3, $4, $5, $6, $7, NOW())`,
@@ -508,7 +508,7 @@ async function migrateCandidates(sql: any) {
         if (uuidSkillId) {
           try {
             const skillLinkId = generateId();
-            await sql(
+            await (sql as any).query(
               `INSERT INTO candidate_skills (
                 id, candidate_id, skill_id, proficiency, source
               ) VALUES ($1, $2, $3, $4, $5)`,
@@ -570,7 +570,7 @@ async function migrateJobOpenings(sql: any) {
 
       const jobId = generateId();
 
-      await sql(
+      await (sql as any).query(
         `INSERT INTO job_openings (
           id, tenant_id, title, description, requirements,
           good_indicators, bad_indicators, location_city, location_state,
@@ -624,7 +624,7 @@ async function migrateJobOpenings(sql: any) {
           if (uuidSkillId) {
             try {
               const jobSkillId = generateId();
-              await sql(
+              await (sql as any).query(
                 `INSERT INTO job_skill_requirements (
                   id, job_opening_id, skill_id, importance
                 ) VALUES ($1, $2, $3, $4)`,
@@ -705,7 +705,7 @@ async function migrateScoringRecords(sql: any) {
 
       const appId = generateId();
 
-      await sql(
+      await (sql as any).query(
         `INSERT INTO applications (
           id, candidate_id, job_opening_id, tenant_id, status, source,
           final_score, weighted_score, score_module_1, score_module_2,

@@ -21,6 +21,22 @@ scripts/package-client.sh client-slug
 
 Outputs a zip at dist/clients/client-slug-YYYYMMDD-HHMMSS.zip excluding node_modules, .next, and secrets.
 
+Enrich a client (research scaffold + prompt)
+
+```sh
+scripts/enrich-client.sh client-slug [client-website]
+```
+
+This generates a ready-to-use research prompt at client-agents/client-slug/research/prompts/ and creates additive target files ending with .additions.md under brand/ and knowledge-base/. Paste curated research into those files — never overwrite existing content.
+
+Enrich all clients
+
+```sh
+scripts/enrich-all-clients.sh
+```
+
+Creates the same scaffold across all client folders (skips templates).
+
 Notes
 - Keep secrets in .env files locally; do not commit .env*
 - If a client has an app under outputs/, follow that app's README for setup

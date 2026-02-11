@@ -5,6 +5,10 @@
 		}
 	],
 	"settings": {
-		"chat.agent.maxRequests": 1000
+		"chat.agent.maxRequests": 1000,
+		"hubspot.beta": true,
+		"chat.tools.terminal.autoApprove": {
+			"unzip": true
+		}
 	}
 }

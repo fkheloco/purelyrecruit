@@ -79,3 +79,9 @@ print -r -- "Next steps:"
 print -r -- "  1) Customize brand/ and knowledge-base/"
 print -r -- "  2) Fill Claude.md with real details"
 print -r -- "  3) If apps exist, configure outputs/<app>/.env from .env.example"
+
+# Optionally scaffold enrichment research prompt/targets
+if [[ -x "$ROOT_DIR/scripts/enrich-client.sh" ]]; then
+  print -r -- "Scaffolding enrichment research prompt and targets ..."
+  "$ROOT_DIR/scripts/enrich-client.sh" "$CLIENT_SLUG" || true
+fi

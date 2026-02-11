@@ -1,0 +1,8 @@
+{
+  "name": "{{CLIENT_NAME}}",
+  "slug": "{{CLIENT_SLUG}}",
+  "primary_contact": "{{PRIMARY_CONTACT}}",
+  "email": "{{PRIMARY_EMAIL}}",
+  "created_at": "{{DATE}}",
+  "notes": "Optional metadata describing the client package."
+}

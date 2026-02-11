@@ -1,0 +1,7 @@
+# Ideal Customer Profile — {{CLIENT_NAME}}
+
+- Target customer characteristics
+- Industries and sectors
+- Company size ranges
+- Geographic focus
+- Pain points we solve

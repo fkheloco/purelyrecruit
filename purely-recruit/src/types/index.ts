@@ -1,0 +1,14 @@
+export type { Tenant, NewTenant } from "@/db/schema/tenants";
+export type { User, NewUser } from "@/db/schema/users";
+export type { Candidate, NewCandidate } from "@/db/schema/candidates";
+export type { Resume, NewResume } from "@/db/schema/resumes";
+export type { CandidateSkill } from "@/db/schema/candidate-skills";
+export type { Skill, NewSkill } from "@/db/schema/skills";
+export type { JobOpening, NewJobOpening } from "@/db/schema/jobs";
+export type { JobSkillRequirement } from "@/db/schema/job-skill-requirements";
+export type { Application, NewApplication } from "@/db/schema/applications";
+export type { ScoringConfig } from "@/db/schema/scoring-configs";
+export type { Note, NewNote } from "@/db/schema/notes";
+export type { Message, NewMessage } from "@/db/schema/messages";
+export type { Notification } from "@/db/schema/notifications";
+export type { JobQueueItem, NewJobQueueItem } from "@/db/schema/job-queue";

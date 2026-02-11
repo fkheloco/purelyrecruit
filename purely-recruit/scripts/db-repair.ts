@@ -28,6 +28,32 @@ async function main() {
       await (sql as any).query(`DROP TYPE IF EXISTS "public"."${e}" CASCADE;`);
       console.log(`✔ ${e} enum checked/dropped`);
     }
+
+    const tables = [
+      'candidate_embeddings',
+      'job_embeddings',
+      'applications',
+      'candidate_skills',
+      'candidates',
+      'embeddings',
+      'job_skill_requirements',
+      'job_openings',
+      'job_queue',
+      'messages',
+      'notes',
+      'notifications',
+      'reporting_snapshots',
+      'resumes',
+      'scoring_configs',
+      'skills',
+      'users',
+      'tenants',
+    ];
+
+    for (const t of tables) {
+      await (sql as any).query(`DROP TABLE IF EXISTS "public"."${t}" CASCADE;`);
+      console.log(`✔ ${t} table checked/dropped`);
+    }
   } catch (err) {
     console.error("Failed dropping objects:", err);
     process.exit(1);

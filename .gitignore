@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
+
+# IDE & Editor
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node (if applicable)
+node_modules/
+dist/
+build/
+.next/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+
+# OS
+Thumbs.db

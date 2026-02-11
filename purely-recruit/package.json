@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "migrate": "npx tsx scripts/migrate.ts",
     "migrate:airtable": "npx tsx scripts/migrate-from-airtable.ts",
     "migrate:airtable:standalone": "npx tsx scripts/migrate-from-airtable-standalone.ts"
   },
